@@ -13,6 +13,7 @@
 		A2E2F0BE2259AA6A00AF775A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E2F0BD2259AA6A00AF775A /* Assets.xcassets */; };
 		A2E2F0C12259AA6A00AF775A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E2F0BF2259AA6A00AF775A /* LaunchScreen.storyboard */; };
 		A2E2F0C42259AA6A00AF775A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E2F0C32259AA6A00AF775A /* main.m */; };
+		A2E9E3432259CDA300F4EF98 /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E9E3422259CDA300F4EF98 /* ListNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A2E2F0C02259AA6A00AF775A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2E2F0C22259AA6A00AF775A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2E2F0C32259AA6A00AF775A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A2E9E3412259CDA300F4EF98 /* ListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListNode.h; sourceTree = "<group>"; };
+		A2E9E3422259CDA300F4EF98 /* ListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				A2E2F0BF2259AA6A00AF775A /* LaunchScreen.storyboard */,
 				A2E2F0C22259AA6A00AF775A /* Info.plist */,
 				A2E2F0C32259AA6A00AF775A /* main.m */,
+				A2E9E3412259CDA300F4EF98 /* ListNode.h */,
+				A2E9E3422259CDA300F4EF98 /* ListNode.m */,
 			);
 			path = leetCode;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				A2E2F0B92259AA6900AF775A /* ViewController.m in Sources */,
 				A2E2F0C42259AA6A00AF775A /* main.m in Sources */,
 				A2E2F0B62259AA6900AF775A /* AppDelegate.m in Sources */,
+				A2E9E3432259CDA300F4EF98 /* ListNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
