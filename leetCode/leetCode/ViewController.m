@@ -37,6 +37,9 @@
 //    NSLog(@"addTwoNumbers:%@",result);
     
 //    3. Longest Substring Without Repeating Characters
+//    NSString *str = [self longestUnRepeatingStringInString:@"abcabcbb"];
+//    str = [self longestUnRepeatingStringInString:@"bbbbb"];
+//    str = [self longestUnRepeatingStringInString:@"pwwkew"];
 }
 
 - (NSArray<NSNumber *> *)twoSum:(NSArray<NSNumber *> *)nums
@@ -87,6 +90,47 @@
         temp.next = [[ListNode alloc] initWithVal:add];
     }
     return result;
+}
+
+- (NSString *)longestUnRepeatingStringInString:(NSString *)str {
+    NSInteger i = 0;
+    NSInteger j = 0;
+    NSUInteger len = str.length;
+    
+    const char *children = str.UTF8String;
+    
+    NSMutableDictionary<NSString *, NSString *> *container = [NSMutableDictionary dictionaryWithCapacity:len];
+    
+    NSInteger start = i;
+    NSInteger end = j;
+    
+    for (; i < len && j < len;) {
+        char jCahr = children[j];
+        NSString *jStr = [NSString stringWithFormat:@"%c",jCahr];
+        NSString *val = container[jStr];
+        if (val == nil) {
+            container[jStr] = jStr;
+            j++;
+        }
+        else {
+            if ((end - start) < (j-1 - i)) {
+                start = i;
+                end = j - 1;
+            }
+            
+            char iCahr = children[i];
+            NSString *iStr = [NSString stringWithFormat:@"%c",iCahr];
+            container[iStr] = nil;
+            i++;
+        }
+    }
+    
+    if ((end - start) < (j-1 - i)) {
+        start = i;
+        end = j - 1;
+    }
+    
+    return [str substringWithRange:NSMakeRange(start, (end-start) + 1)];
 }
 
 @end
