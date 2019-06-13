@@ -40,6 +40,40 @@
 //    NSString *str = [self longestUnRepeatingStringInString:@"abcabcbb"];
 //    str = [self longestUnRepeatingStringInString:@"bbbbb"];
 //    str = [self longestUnRepeatingStringInString:@"pwwkew"];
+    
+//    4.Jewels and Stones
+//    NSInteger count = [self numberOfStones:@"aAAbbbb" inJewels:@"aA"];
+//    count = [self numberOfStones:@"ZZ" inJewels:@"z"];
+}
+
+- (NSInteger)numberOfStones:(NSString *)stones inJewels:(NSString *)jewels {
+    NSInteger count = 0;
+    char A = 'A';
+    char z = 'z';
+    
+    //初始化值
+    NSInteger length = z - A + 1;
+    NSMutableArray<NSNumber *> *numbers = [NSMutableArray arrayWithCapacity:length];
+    for (NSUInteger i = 0; i < length; i++) {
+        [numbers addObject:@0];
+    }
+    
+    //遍历stones
+    for (NSUInteger i = 0; i < stones.length; i++) {
+        unichar index = [stones characterAtIndex:i] - A;
+        NSInteger val = numbers[index].integerValue;
+        val += 1;
+        numbers[index] = @(val);
+    }
+    
+    //遍历jewels
+    for (NSUInteger i = 0; i < jewels.length; i++) {
+        unichar index = [jewels characterAtIndex:i] - A;
+        NSInteger val = numbers[index].integerValue;
+        count += val;
+    }
+    
+    return count;
 }
 
 - (NSArray<NSNumber *> *)twoSum:(NSArray<NSNumber *> *)nums
