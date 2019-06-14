@@ -44,6 +44,38 @@
 //    4.Jewels and Stones
 //    NSInteger count = [self numberOfStones:@"aAAbbbb" inJewels:@"aA"];
 //    count = [self numberOfStones:@"ZZ" inJewels:@"z"];
+    
+//    5.Longest Palindromic Substring
+//    NSString *str = [self longestPalindromicSubstring:@[@"b",@"a",@"b",@"a",@"d"]];
+//    str = [self longestPalindromicSubstring:@[@"c",@"b",@"b",@"d"]];
+}
+
+- (NSString *)longestPalindromicSubstring:(NSArray<NSString *> *)list {
+    __block NSInteger count = 0;
+    __block NSInteger startIndex = 0;
+    
+    NSMutableDictionary<NSString *, NSNumber *> *map = [NSMutableDictionary dictionaryWithCapacity:list.count];
+    [list enumerateObjectsUsingBlock:^(NSString * _Nonnull str, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSNumber *val = map[str];
+        if (val == nil) {
+            map[str] = @(idx);
+        }
+        else {
+            NSInteger start = val.integerValue;
+            NSInteger len = idx - start + 1;
+            if (len > count) {
+                startIndex = start;
+                count = len;
+                map[str] = @(idx);
+            }
+        }
+    }];
+    
+    if (count > 0) {
+        NSArray<NSString *> *subList = [list subarrayWithRange:NSMakeRange(startIndex, count)];
+        return [subList componentsJoinedByString:@""];
+    }
+    return nil;
 }
 
 - (NSInteger)numberOfStones:(NSString *)stones inJewels:(NSString *)jewels {
