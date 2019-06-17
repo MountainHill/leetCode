@@ -48,6 +48,31 @@
 //    5.Longest Palindromic Substring
 //    NSString *str = [self longestPalindromicSubstring:@[@"b",@"a",@"b",@"a",@"d"]];
 //    str = [self longestPalindromicSubstring:@[@"c",@"b",@"b",@"d"]];
+    
+//    6.Reverse Integer
+//    NSInteger val = [self reverseInteger:123];
+//    val = [self reverseInteger:-123];
+//    val = [self reverseInteger:120];
+}
+
+- (NSInteger)reverseInteger:(NSInteger)val {
+    BOOL sign = (val >= 0);
+    
+    if (!sign) {
+        val = abs(val);
+    }
+    
+    NSInteger total = 0;
+    while (val > 0) {
+        total *= 10;
+        
+        NSInteger bit = val % 10;
+        total += bit;
+        
+        val /= 10;
+    }
+    
+    return total * (sign ? 1 : -1);
 }
 
 - (NSString *)longestPalindromicSubstring:(NSArray<NSString *> *)list {
